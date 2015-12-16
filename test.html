@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>YWC</title>
+
+<style type="text/css">
+body {
+      background: linear-gradient(to top right, #16BED5, #030F26);
+	overflow:hidden;
+
+}
+
+
+
+</style>
+</head>
+<body>
+<svg id="mySvg" width="100%" height="1000">
+
+<circle id="circle" cx="100" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-100"  to="1100"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="1000" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-130"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="200" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-150"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="1300" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-50"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="500" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-100"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="1400" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-30"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+<circle id="circle" cx="1600" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="0"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+
+<circle id="circle" cx="1900" cy="0" r="25" style="stroke: none; fill: #FFFFFF;">
+    <animate attributeName="cy" attributeType="XML"
+             from="-200"  to="100%"
+             begin="0s" dur="5s"
+             fill="remove" repeatCount="indefinite"/>
+
+</circle>
+
+
+
+<!-- <text id="text" x="500" y="500" fill="red" font-size="55">I love SVG!</text> -->
+
+
+
+
+
+</svg>
+<!-- <canvas id="myCanvas" width="200" height="200" style="margin-top:50px;margin-left:100px">
+Your browser does not support the HTML5 canvas tag.</canvas> -->
+
+
+
+
+<script>
+
+      // var canvas = document.getElementById('myCanvas');
+      // var context = canvas.getContext('2d');
+      // var centerX = canvas.width / 2;
+      // var centerY = canvas.height / 2;
+      // var radius = 70;
+
+      // context.beginPath();
+      // context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+      // context.fillStyle = 'green';
+      // context.fill();
+      // context.lineWidth = 5;
+      // context.strokeStyle = '#003300';
+      // context.stroke();
+      // context.textBaseline = "top";
+      // context.font = "bold 50px Verdana";
+      // context.fillStyle = 'black';
+      // context.fillText("Y", centerX-20, centerY-20);
+
+      var circle = document.getElementById('circle');
+      var position = getPosition(circle);
+      var text = document.getElementById('text');
+
+      
+
+      // text.textContent("The image is located at: " + position.x + ", " + position.y);
+
+       // setInterval(function(){ createBackground();} , 1000);
+       for (var i = 0 ;i <= 6; i++) {
+
+             createBackground();
+       }
+
+      function createBackground(){
+                  var m = Math.floor(Math.random() * 1900) + 1 ;
+                  var y = Math.floor(Math.random() * -1500);
+                  var svgNS = "http://www.w3.org/2000/svg";
+                  var textElement = document.getElementById("mySvg");
+                  var c = document.createElementNS(svgNS, "circle");
+                  var a = document.createElementNS(svgNS,"animate");
+                  c.setAttribute("cx",m);
+                  c.setAttribute("cy",y);
+                  c.setAttribute("r","25");
+                  c.setAttribute("style","stroke: none; fill: #FFFFFF;");
+                  textElement.appendChild(c);
+                  a.setAttribute("attributeName","cy");
+                  a.setAttribute("attributeType","XML");
+                  a.setAttribute("from",y);
+                  a.setAttribute("to",1000+(y*-1));
+                  a.setAttribute("begin","0s");
+                  a.setAttribute("dur","5s");
+                  a.setAttribute("fill","remove");
+                  a.setAttribute("repeatCount","indefinite");
+                  c.appendChild(a);
+
+
+
+      }
+
+      function update(element){
+            position = getPosition(circle);
+            text.textContent = "The image is located at: " + position.x + ", " + position.y;
+
+      }
+      function getPosition(element) {
+          var xPosition = 0;
+          var yPosition = 0;
+        
+          while(element) {
+              xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+              yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+              element = element.offsetParent;
+          }
+          return { x: xPosition, y: yPosition };
+      }
+</script> 
+</body>
+
+</html>

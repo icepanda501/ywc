@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>YWC example</title>
+<style>
+body{
+	overflow: hidden;
+	background: linear-gradient(to top , #c9dbe9, #fff);
+}
+
+#test{
+
+	padding: :100px 0;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+
+}
+
+.bg{
+	background: black;
+	width: 100%;
+	height: 1000px;
+
+	-webkit-animation: changebg 50s linear 1;
+	-moz-animation: changebg 50s linear 1;
+	-o-animation: changebg 50s linear 1;
+
+}
+
+
+.bubble{
+
+	position: absolute;
+}
+
+.Y{
+	
+}
+.W{
+
+}
+.C{
+
+}
+
+.ywcpoint{
+
+	margin-top:200px;
+	text-align: center;
+
+}
+.textBeforeStart{
+
+	margin-left:40%;
+
+}
+.bugget{
+	position: absolute;
+	margin-top: 40%;
+}
+
+.ywc{
+	position: absolute;
+	margin-left: 35%;
+
+}
+.cloud {
+	width: 200px; height: 60px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+	position: absolute; 
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -15px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -55px; left: auto; right: 15px;
+}
+
+.point{
+	font-size: 50px;
+	font-family: Arial, Helvetica, sans-serif;
+
+	
+}
+.win{
+	margin-left: 30%;
+	position: absolute; 
+	font-size: 300px;
+	font-family: Arial, Helvetica, sans-serif;
+	-webkit-animation:hulk 1s linear 1;
+
+}
+.gameover{
+	position:absolute;
+}
+
+.x1 {
+	-webkit-animation: moveclouds 15s linear infinite;
+	-moz-animation: moveclouds 15s linear infinite;
+	-o-animation: moveclouds 15s linear infinite;
+}
+
+
+.x2 {
+	left: 200px;
+	
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	transform: scale(0.6);
+	opacity: 0.6; 
+
+	-webkit-animation: moveclouds 25s linear infinite;
+	-moz-animation: moveclouds 25s linear infinite;
+	-o-animation: moveclouds 25s linear infinite;
+}
+
+.x3 {
+
+	top:10%;
+	left:30%;
+	
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+
+.x4 {
+	top:25%;
+	left:30%;
+	
+	-webkit-transform: scale(0.75);
+	-moz-transform: scale(0.75);
+	transform: scale(0.75);
+	opacity: 0.75; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 18s linear infinite;
+	-moz-animation: moveclouds 18s linear infinite;
+	-o-animation: moveclouds 18s linear infinite;
+}
+
+.x5 {
+
+	top:30%;
+	left:30%;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 20s linear infinite;
+	-moz-animation: moveclouds 20s linear infinite;
+	-o-animation: moveclouds 20s linear infinite;
+}
+.x6 {
+
+	top:30%;
+	left:15%;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 30s linear infinite;
+	-moz-animation: moveclouds 30s linear infinite;
+	-o-animation: moveclouds 30s linear infinite;
+}
+
+.x7 {
+
+	top:15%;
+	left:40%;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	transform: scale(0.8);
+	opacity: 0.8; /*opacity proportional to the size*/
+	
+	-webkit-animation: moveclouds 40s linear infinite;
+	-moz-animation: moveclouds 40s linear infinite;
+	-o-animation: moveclouds 40s linear infinite;
+}
+
+
+
+
+
+
+@-webkit-keyframes moveclouds{
+	0%{margin-left: 100%}
+	100%{margin-left: -1000px}
+
+}
+@-moz-keyframes moveclouds{
+	0%{margin-left: 100%}
+	100%{margin-left: -1000px}
+
+}
+@-o-keyframes moveclouds{
+	0%{margin-left: 100%}
+	100%{margin-left: -1000px}
+
+}
+
+
+
+@-webkit-keyframes changebg{
+	0%{background: linear-gradient(to bottom , #c9dbe9 0%, #fff 100%);}
+	25%  {background: linear-gradient(to bottom , #17B8E1 0%, #B6EEFC 100%);}
+	50%  {background:blue;}
+	85% {background:#FF0000;}
+	100{background:black;}
+/*	100%{background: linear-gradient(to bottom , #FF0000, #E56717 100%);}*/
+
+}
+@-moz-keyframes changebg{
+	0%{background: linear-gradient(to bottom , #c9dbe9 0%, #fff 100%);}
+	25%  {background: linear-gradient(to bottom , #17B8E1 0%, #B6EEFC 100%);}
+	50%  {background:blue;}
+	85% {background:#FF0000;}
+	100{background:black;}
+
+}
+@-o-keyframes changebg{
+	0%{background: linear-gradient(to bottom , #c9dbe9 0%, #fff 100%);}
+	25%  {background: linear-gradient(to bottom , #17B8E1 0%, #B6EEFC 100%);}
+	50%  {background:blue;}
+	85% {background:#FF0000;}
+	100{background:black;}
+
+}
+
+</style>
+</head>
+
+<body>
+
+ <div id="bg" class="bg">
+
+	<p>@izerobetray<p>
+	<div class="cloud x1"></div>
+	<div class="cloud x2"></div>
+	<div class="cloud x3"></div>
+	<div class="cloud x4"></div>
+	<div class="cloud x5"></div>
+	<div class="cloud x6"></div>
+	<div class="cloud x7"></div>
+	<canvas class="bugget" id="bugget" width="200" height="100"></canvas>
+	<canvas class="ywc" id="ywc" width="600" height="300" hidden></canvas>
+
+	<div class="ywcpoint" id="ywcpoint" hidden><font id="ypoint" class="point" >0</font><font id="wpoint" class="point" style="margin-left:150px">0</font><font id="cpoint" class="point" style="margin-left:150px">0</font></div>
+	
+	<canvas class="textBeforeStart" id="textBeforeStart" width="400" height="200" style="border:5px solid #000000;"></canvas>
+	
+</div>
+
+
+
+<script>
+
+
+	var pointY = 0 , pointW = 0  , pointC = 0;
+	var gameLoop;
+	var loopCreateY , loopCreateW , loopCreateC ;
+	var ypoint = document.getElementById('ypoint');
+	var wpoint = document.getElementById('wpoint');
+	var cpoint = document.getElementById('cpoint');
+	var fps = 60;
+	var timeing = 0;
+	var bugget = document.getElementById('bugget');
+	var ywcpoint = document.getElementById('ywcpoint');
+	var ywc = document.getElementById('ywc');
+	var textBF = document.getElementById('textBeforeStart');
+	var ctx = textBF.getContext('2d');
+	ctx.beginPath();
+	ctx.font = "50px Arial";
+	ctx.fillStyle = "black";
+	ctx.fillText("Spacebar", 90, 65);
+	ctx.fillText("Let's start!!", 75, 170);
+
+	ctx.font = "40px Arial";
+	ctx.fillText("and", 150, 120);
+	ctx.closePath();
+
+	createBugget();
+	createScoreBoard();
+
+
+	document.addEventListener("mousemove", function(e){
+
+
+		bugget.style.marginLeft = e.clientX +"px";
+
+
+	});
+
+	window.addEventListener("keypress", function(e){
+
+		if(e.keyCode == 32){
+				ywc.removeAttribute('hidden');
+				ywcpoint.removeAttribute('hidden');
+
+				textBF.remove();
+				createBubbleY(1500);
+				createBubbleW(1500);
+				createBubbleC(1500);
+				gameloop();
+		}
+
+
+	});
+
+	function createBugget(){
+		var ctx = bugget.getContext('2d');
+		ctx.beginPath();
+		ctx.arc(bugget.width/2,0,100,0,2*Math.PI);
+		ctx.fillStyle = "#A85228";
+		ctx.fill();
+		ctx.lineWidth = 2;
+		ctx.strokeStyle = 'black';
+		ctx.stroke();
+		ctx.closePath();
+
+	}
+
+	function createScoreBoard(){
+		var ywcText = document.getElementById("ywc");
+		var ctx = ywcText.getContext("2d");
+		ctx.beginPath();
+		ctx.font = "150px Arial";
+		// context.fillText("Y", 35, 65);
+     	ctx.lineWidth = 10;
+    	ctx.strokeStyle = '#F4D03F';
+    	ctx.strokeText("Y W C", 50, 150);
+    	ctx.fillStyle="black";
+		ctx.fillText("Y W C", 50, 150);
+		ctx.closePath();
+
+	}
+	function gameloop(){
+		gameLoop = setInterval(function(){
+
+			animetionMove();
+
+		},1000/60);
+	}
+
+	function createBubbleY(s){
+		var x;
+		var y;
+		loopCreateY = setInterval(function(){
+
+			x = Math.floor(Math.random() * window.innerWidth);
+			y = Math.floor(Math.random() * -300)-100;
+			createCanvas(x,y,"Y","#F4D03F",35,65);
+
+		},s);
+
+	}
+	function createBubbleW(s){
+		var x;
+		var y;
+		loopCreateW = setInterval(function(){
+
+			x = Math.floor(Math.random() * window.innerWidth);
+			y = Math.floor(Math.random() * -300)-100;
+			createCanvas(x,y,"W","#A5D050",30,70);
+
+		},s);
+
+	}
+	function createBubbleC(s){
+		var x;
+		var y;
+		loopCreateC = setInterval(function(){
+
+			x = Math.floor(Math.random() * window.innerWidth);
+			y = Math.floor(Math.random() * -300)-100;
+			createCanvas(x,y,"C","#7B4FD1",35,65);
+
+		},s);
+
+	}
+	//#A5D050
+
+	function animetionMove(){
+		var yb = document.getElementsByClassName('bubble');
+		var pos_y;
+		var pos_x;
+		var distace;
+		for (var i = 0 ; i<yb.length;i++) {
+			distace = getDistance(yb[i],bugget);
+			pos_y = parseInt(yb[i].style.marginTop);
+			yb[i].style.marginTop = (pos_y+10)+"px";
+
+			if(distace<75){
+				
+				if(yb[i].className == "bubble Y" && pointY <13){
+					pointY = pointY + 1;
+					ypoint.innerHTML = pointY;
+				}
+				if(yb[i].className == "bubble W" && pointW <13){
+					pointW = pointW + 1;
+					wpoint.innerHTML = pointW;
+				}
+				if(yb[i].className == "bubble C"  && pointC <13){
+					pointC = pointC + 1;
+					cpoint.innerHTML = pointC;
+				}
+
+				yb[i].remove();
+			}
+			if(pos_y > window.innerHeight){
+				yb[i].remove();
+			}
+
+
+			if(pointY == 13){
+				ypoint.setAttribute("color","red");
+				clearInterval(loopCreateY);
+			}
+
+			if(pointC == 13){
+				cpoint.setAttribute("color","red");
+				clearInterval(loopCreateC);
+
+			}
+			if(pointW == 13){
+				wpoint.setAttribute("color","red");
+				clearInterval(loopCreateW);
+
+			}
+
+			if(pointW == 13 && pointC == 13 && pointY == 13){
+
+				ywcpoint.remove();
+				ywc.remove();
+
+				var gameover = document.createElement('canvas');
+				gameover.width = window.innerWidth;
+				gameover.height = window.innerHeight;
+				gameover.setAttribute("class","gameover");
+				document.getElementById('bg').appendChild(gameover);
+				var ctx = gameover.getContext("2d");
+				ctx.beginPath();
+				ctx.font = "500px Arial";
+				// context.fillText("Y", 35, 65);
+		     	ctx.lineWidth = 10;
+		    	ctx.strokeStyle = '#F4D03F';
+		    	ctx.strokeText("Y", gameover.width/5, 500);
+		    	ctx.fillStyle="black";
+				ctx.fillText("Y", gameover.width/5, 500);
+				
+				setTimeout(function(){
+			        ctx.strokeText("W", gameover.width/3+100, 500);
+			        ctx.fillText("W", gameover.width/3+100, 500);
+			    }, 1000);
+			    setTimeout(function(){
+			        ctx.strokeText("C", gameover.width/2+250, 500);
+			        ctx.fillText("C", gameover.width/2+250, 500);
+			        specialEffect();
+			    }, 2000);
+
+			    ctx.closePath();
+				clearInterval(gameLoop);
+				
+
+			}
+
+		}
+	}
+
+
+	function specialEffect(){
+
+			createBubbleY(100);
+			createBubbleW(100);
+			createBubbleC(100);
+
+			setInterval(function(){
+
+				var yb = document.getElementsByClassName('bubble');
+				var pos_y;
+				for (var i = 0 ; i<yb.length;i++) {
+					pos_y = parseInt(yb[i].style.marginTop);
+					yb[i].style.marginTop = (pos_y+30)+"px";
+					if(pos_y>1500){
+						yb[i].remove();
+					}
+				}
+
+			},1000/60);
+
+
+	}
+
+
+	function createCanvas(x,y,name,color,p_fontx,p_fonty){
+		var canv = document.createElement('canvas');
+		canv.width = 100;
+		canv.height = 100;
+		canv.setAttribute("class","bubble "+name);
+		var context = canv.getContext('2d');
+		context.beginPath();
+		context.arc(canv.width/2,canv.height/2,45,0,2*Math.PI);
+		// context.fillStyle = "#F4D03F";
+		context.fillStyle = color;
+		context.fill();
+		context.lineWidth = 5;
+		context.strokeStyle = '#003300';
+		context.stroke();
+		context.font = "50px Arial";
+		context.fillStyle = "black";
+		context.fillText(name, p_fontx, p_fonty);
+		context.closePath();
+		canv.style.marginTop = y+"px";
+		canv.style.marginLeft = x+"px";
+		document.getElementById('bg').appendChild(canv);
+
+	}
+	
+
+	function getPosition(element){
+		var x = element.getBoundingClientRect().left + element.width/2;
+		var y = element.getBoundingClientRect().top + element.height/2;
+
+		return { x : x , y : y};
+	}
+	function getDistance(element1,element2){
+		var aPosition = getPosition(element1);
+		var bPosition = getPosition(element2);
+
+		return Math.sqrt(Math.pow(aPosition.x - bPosition.x, 2) + Math.pow(aPosition.y - bPosition.y, 2));
+
+	}
+
+
+</script>
+</body>
+</html>
